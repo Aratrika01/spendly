@@ -4,6 +4,43 @@
 
 {% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">{% endblock %}
 
+{% block scripts %}
+<script>
+    (function () {
+        var trigger = document.getElementById('how-it-works-btn');
+        var modal = document.getElementById('video-modal');
+        var closeBtn = document.getElementById('video-modal-close');
+        var iframe = document.getElementById('video-modal-iframe');
+        var videoSrc = iframe.getAttribute('data-src');
+
+        function openModal(e) {
+            e.preventDefault();
+            iframe.src = videoSrc;
+            modal.classList.add('is-open');
+            closeBtn.focus();
+        }
+
+        function closeModal() {
+            // Clearing src unloads the player, so the video stops.
+            iframe.src = '';
+            modal.classList.remove('is-open');
+            trigger.focus();
+        }
+
+        trigger.addEventListener('click', openModal);
+        closeBtn.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', function (e) {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+        });
+    })();
+</script>
+{% endblock %}
+
 {% block content %}
 
 <section class="lp-hero">
@@ -17,7 +54,7 @@
     </p>
     <div class="lp-hero-actions">
         <a href="{{ url_for('register') }}" class="lp-btn">Create free account</a>
-        <a href="#" class="lp-btn">See how it works</a>
+        <a href="#" id="how-it-works-btn" class="lp-btn" role="button">See how it works</a>
     </div>
 
     <div class="lp-mock">
@@ -83,5 +120,18 @@
         <a href="{{ url_for('register') }}" class="btn-primary">Create free account</a>
     </div>
 </section>
+
+<div id="video-modal" class="lp-modal" role="dialog" aria-modal="true" aria-label="Product walkthrough video">
+    <div class="lp-modal-dialog">
+        <button type="button" id="video-modal-close" class="lp-modal-close" aria-label="Close video">&times;</button>
+        <div class="lp-modal-video">
+            <iframe id="video-modal-iframe"
+                    data-src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Spendly walkthrough"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
