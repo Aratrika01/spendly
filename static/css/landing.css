@@ -1,0 +1,191 @@
+/* ------------------------------------------------------------------ */
+/* Landing page: hero                                                  */
+/* Loaded only on the landing page, after style.css.                   */
+/* ------------------------------------------------------------------ */
+
+.lp-hero {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 4rem;
+    text-align: center;
+}
+
+/* Badge */
+
+.lp-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    background: #e6f4ed;
+    border: 1px solid #bfe0cf;
+    border-radius: 999px;
+    color: #2a6a4b;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.lp-hero-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4a9d7b;
+}
+
+/* Title and subtitle */
+
+.lp-hero-title {
+    margin-top: 2rem;
+    font-family: var(--font-body);
+    font-size: clamp(2.75rem, 7vw, 4.75rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+}
+
+.lp-hero-accent { color: #4a9d7b; }
+
+.lp-hero-subtitle {
+    max-width: 720px;
+    margin: 1.75rem auto 0;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Buttons */
+
+.lp-hero-actions {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.lp-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: #111;
+    color: #fff;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.lp-btn:hover { background: var(--accent); }
+
+/* Mock dashboard card */
+
+.lp-mock {
+    margin-top: 4.5rem;
+    padding: 1.75rem;
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    text-align: left;
+}
+
+.lp-mock-dots {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.lp-mock-dots span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.lp-mock-dots span:nth-child(1) { background: #e8a0a0; }
+.lp-mock-dots span:nth-child(2) { background: #f2c66d; }
+.lp-mock-dots span:nth-child(3) { background: #a8dcc4; }
+
+.lp-mock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.lp-stat,
+.lp-mock-bars {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.lp-stat { padding: 1.5rem; }
+
+.lp-stat-label {
+    font-size: 1rem;
+    color: #888;
+}
+
+.lp-stat-value {
+    margin-top: 0.4rem;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.lp-stat-note {
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+    color: #888;
+}
+
+.lp-neg { color: #d64541; }
+.lp-pos { color: #4a9d7b; }
+
+.lp-mock-bars {
+    margin-top: 1rem;
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.lp-bar-row {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.lp-bar-label {
+    font-size: 1.05rem;
+    color: #444;
+}
+
+.lp-bar-track {
+    height: 12px;
+    background: var(--paper-warm);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.lp-bar {
+    height: 100%;
+    border-radius: 6px;
+}
+
+.lp-bar-food { width: 72%; background: #e8a33d; }
+.lp-bar-travel { width: 48%; background: #4a85d8; }
+.lp-bar-bills { width: 38%; background: #7b6fd6; }
+
+/* Small screens */
+
+@media (max-width: 640px) {
+    .lp-hero { padding: 3rem 1rem 2.5rem; }
+    .lp-hero-subtitle { font-size: 1.05rem; }
+    .lp-btn { width: 100%; padding: 0.9rem 1.5rem; }
+    .lp-hero-actions { flex-direction: column; align-items: stretch; }
+    .lp-mock { padding: 1.1rem; }
+    .lp-mock-stats { grid-template-columns: 1fr; }
+    .lp-stat-value { font-size: 1.6rem; }
+    .lp-mock-bars { padding: 1.1rem; }
+    .lp-bar-row { grid-template-columns: 3.5rem 1fr; gap: 0.75rem; }
+}
